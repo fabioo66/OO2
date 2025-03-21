@@ -10,6 +10,10 @@ public class Twitter {
 		usuarios = new ArrayList<>();
 	}
 	
+	public List<Usuario> getUsuarios(){
+		return this.usuarios;
+	}
+	
 	public void eliminarUsuario(Usuario usuario) {
 		usuario.eliminarPosts();
 		this.usuarios.remove(usuario);
@@ -21,7 +25,7 @@ public class Twitter {
 		}
 	}
 
-	public boolean existeUsuario(String screenName) {
+	private boolean existeUsuario(String screenName) {
 		return this.usuarios.stream().
 			anyMatch(usuario -> usuario.getScreenName().equals(screenName));
 	}

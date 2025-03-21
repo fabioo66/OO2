@@ -28,16 +28,19 @@ public class Usuario {
 		return text.length() >= 1 && text.length() <= 180; 
 	}
 	
-	public void tweetear(String text) {
-		if (cumpleFormato(text)) {
-			Tweet tweet = new Tweet(this, text);
-			this.agregarPost(tweet);
-		}
+	public Tweet tweetear(String text) {
+	    if (!cumpleFormato(text)) {
+	        throw new IllegalArgumentException("El tweet debe tener entre 1 y 180 caracteres");
+	    }
+	    Tweet tweet = new Tweet(this, text);
+	    this.agregarPost(tweet);
+	    return tweet;
 	}
 	
 	public Retweet retweetear(Post post) {
 		Retweet retweet = new Retweet(this, post);
 		this.agregarPost(retweet);
+		post.agregarRetweet(retweet);
 		// para testear
 		return retweet;
 	}
