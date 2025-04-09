@@ -33,16 +33,4 @@ public abstract class Post {
 			forEach(retweet -> retweet.getUsuario().eliminarRetweet(retweet));
 		this.eliminarRetweets();
 	}
-	
-	/*
-	public void eliminarReferencias() {
-	    // Primero eliminamos las referencias de los retweets anidados
-	    this.retweets.forEach(retweet -> retweet.eliminarReferencias());
-	    
-	    // Luego eliminamos las referencias en los usuarios
-	    this.retweets.forEach(retweet -> retweet.getUsuario().eliminarRetweet(retweet));
-
-	    // Finalmente, vaciamos la lista de retweets de este post
-	    this.eliminarRetweets();
-	}*/
 }
