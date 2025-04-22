@@ -3,7 +3,7 @@ package ar.edu.unlp.objetos.dos.ejercicio5;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SugerenciaPorNovedad extends EstrategiaDeSugerencia{
+public class SugerenciaPorNovedad implements EstrategiaDeSugerencia{
 
 	@Override
  	public List<Pelicula> sugerirPeliculas(Decodificador decodificador){

@@ -2,7 +2,7 @@ package ar.edu.unlp.objetos.dos.ejercicio5;
 
 import java.util.List;
 
-public abstract class EstrategiaDeSugerencia {
+public interface EstrategiaDeSugerencia {
 	
-	public abstract List<Pelicula> sugerirPeliculas(Decodificador decodificador);
+	public List<Pelicula> sugerirPeliculas(Decodificador decodificador);
 }

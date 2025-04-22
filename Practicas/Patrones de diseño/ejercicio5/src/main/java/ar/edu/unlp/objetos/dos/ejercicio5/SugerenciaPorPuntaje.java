@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class SugerenciaPorPuntaje extends EstrategiaDeSugerencia{
+public class SugerenciaPorPuntaje implements EstrategiaDeSugerencia{
 
     @Override
     public List<Pelicula> sugerirPeliculas(Decodificador decodificador){
