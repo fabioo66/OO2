@@ -29,4 +29,8 @@ public class Dispositivo {
 		this.crcCalculator = crcCalculator;
 		return "CRC has changed";
 	}
+	
+	public Connection getConnection() {
+		return this.connection;
+	}
 }
