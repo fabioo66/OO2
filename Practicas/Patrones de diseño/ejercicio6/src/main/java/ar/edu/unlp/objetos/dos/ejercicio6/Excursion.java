@@ -49,8 +49,8 @@ public class Excursion {
 		this.estadoDeInscripcion.inscribirUsuario(this, usuario);
 	}
 
-	public void obtenerInformacion() {
-		this.estadoDeInscripcion.estadoToString(this);
+	public String obtenerInformacion() {
+		return this.toString() + this.estadoDeInscripcion.informacionAdicional(this);
 	}
 
 	public void agregarUsuario(Usuario usuario) {

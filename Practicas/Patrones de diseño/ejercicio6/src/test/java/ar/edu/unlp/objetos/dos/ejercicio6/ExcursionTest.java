@@ -58,7 +58,7 @@ public class ExcursionTest {
 	
 	@Test
 	public void obtenerInformacionProvisoriaTest() {
-		String info = this.excursion.getEstadoDeInscripcion().estadoToString(this.excursion);
+		String info = this.excursion.obtenerInformacion();
 		assertTrue(info.contains("cupo mínimo"));
 		assertTrue(info.contains("usuarios faltantes"));
 	}
@@ -66,7 +66,7 @@ public class ExcursionTest {
 	@Test
 	public void obtenerInformacionDefinitivaTest() {
 		this.excursion.inscribirUsuario(this.usuario1);
-		String info = this.excursion.getEstadoDeInscripcion().estadoToString(this.excursion);
+		String info = this.excursion.obtenerInformacion();
 		assertTrue(info.contains("cupo maximo"));
 	}
 	
@@ -74,7 +74,7 @@ public class ExcursionTest {
 	public void obtenerInformacionCompletaTest() {
 		this.excursion.inscribirUsuario(usuario1);
 		this.excursion.inscribirUsuario(usuario2);
-		String info = this.excursion.getEstadoDeInscripcion().estadoToString(this.excursion);
+		String info = this.excursion.obtenerInformacion();
 		assertFalse(info.contains("usuarios faltantes"));
 		assertFalse(info.contains(usuario1.getEmail()));
 		assertTrue(info.contains("Excursion [nombre="));

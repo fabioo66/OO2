@@ -1,6 +1,6 @@
 package ar.edu.unlp.objetos.dos.ejercicio6;
 
-public class Completa extends EstadoDeInscripcion{
+public class Completa implements EstadoDeInscripcion{
 
 	@Override
 	public void inscribirUsuario(Excursion excursion, Usuario usuario) {
@@ -8,7 +8,7 @@ public class Completa extends EstadoDeInscripcion{
 	}
 
 	@Override
-	protected String informacionAdicional(Excursion excursion) {
+	public String informacionAdicional(Excursion excursion) {
 		return "";
 	}
 }

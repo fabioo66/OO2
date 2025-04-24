@@ -1,12 +1,7 @@
 package ar.edu.unlp.objetos.dos.ejercicio6;
 
-public abstract class EstadoDeInscripcion {
-	
-	public String estadoToString(Excursion excursion) {
-		return excursion.toString() + this.informacionAdicional(excursion);
-	}
+public interface EstadoDeInscripcion {
 
-	protected abstract String informacionAdicional(Excursion excursion);
-
-	public abstract void inscribirUsuario(Excursion excursion, Usuario usuario);
+	public String informacionAdicional(Excursion excursion);
+	public void inscribirUsuario(Excursion excursion, Usuario usuario);
 }
