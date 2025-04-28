@@ -1,4 +1,4 @@
-package ar.edu.unlp.objetos.dos.ejercicio11;
+package ar.edu.unlp.objetos.dos.ejercicio11b;
 
 public interface Topografia {
 	public double proporcionAgua();
@@ -7,4 +7,5 @@ public interface Topografia {
 	public boolean esIgualAgua();
     public boolean esIgualTierra();
     public boolean esIgualMixta(Mixta otraMixta);
+    public boolean esIgualPantano();
 }
