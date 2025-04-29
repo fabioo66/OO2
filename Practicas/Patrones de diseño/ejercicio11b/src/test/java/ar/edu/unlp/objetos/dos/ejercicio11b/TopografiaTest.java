@@ -1,6 +1,13 @@
 package ar.edu.unlp.objetos.dos.ejercicio11b;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class TopografiaTest {
@@ -34,17 +41,10 @@ public class TopografiaTest {
     }
 
     @Test
-    public void testMixtaSimple() {
-        Topografia mixta = new Mixta(new Agua(), new Tierra(), new Tierra(), new Agua());
-        assertEquals(0.5, mixta.proporcionAgua(), 0.001);
-        assertEquals(0.5, mixta.proporcionTierra(), 0.001);
-    }
-
-    @Test
     public void testIgualdadEntreMixtas() {
-        Topografia m1 = new Mixta(new Agua(), new Tierra(), new Tierra(), new Agua());
-        Topografia m2 = new Mixta(new Agua(), new Tierra(), new Tierra(), new Agua());
-        Topografia m3 = new Mixta(new Tierra(), new Tierra(), new Agua(), new Agua());
+        Topografia m1 = new Mixta(Arrays.asList(new Agua(), new Tierra(), new Tierra(), new Agua()));
+        Topografia m2 = new Mixta(Arrays.asList(new Agua(), new Tierra(), new Tierra(), new Agua()));
+        Topografia m3 = new Mixta(Arrays.asList(new Tierra(), new Tierra(), new Agua(), new Agua()));
 
         assertTrue(m1.esIgual(m2));
         assertFalse(m1.esIgual(m3)); 
@@ -52,10 +52,29 @@ public class TopografiaTest {
 
     @Test
     public void testMixtaAnidada() {
-        Topografia mixtaInterna = new Mixta(new Agua(), new Tierra(), new Tierra(), new Agua());
-        Topografia mixtaExterna = new Mixta(mixtaInterna, new Tierra(), new Agua(), new Tierra());
+        Topografia mixtaInterna = new Mixta(Arrays.asList(new Agua(), new Tierra(), new Tierra(), new Agua()));
+        Topografia mixtaExterna = new Mixta(Arrays.asList(mixtaInterna, new Tierra(), new Agua(), new Tierra()));
 
         assertEquals(0.375, mixtaExterna.proporcionAgua(), 0.001);
         assertEquals(0.625, mixtaExterna.proporcionTierra(), 0.001);
+    }
+
+    @Test
+    public void testMixtaConTresElementos() {
+        List<Topografia> lista = Arrays.asList(new Agua(), new Tierra(), new Tierra());
+        assertThrows(RuntimeException.class, () -> new Mixta(lista));
+    }
+
+    @Test
+    public void testMixtaConCincoElementos() {
+        List<Topografia> lista = Arrays.asList(new Agua(), new Tierra(), new Tierra(), new Agua(), new Tierra());
+        assertThrows(RuntimeException.class, () -> new Mixta(lista));
+    }
+
+    @Test
+    public void testMixtaConMasDeCincoElementos() {
+        List<Topografia> lista = Arrays.asList(
+            new Agua(), new Tierra(), new Tierra(), new Agua(), new Tierra(), new Agua());
+        assertThrows(RuntimeException.class, () -> new Mixta(lista));
     }
 }

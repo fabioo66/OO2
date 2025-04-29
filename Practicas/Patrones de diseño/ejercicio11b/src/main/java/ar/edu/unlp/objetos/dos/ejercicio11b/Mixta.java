@@ -6,12 +6,11 @@ import java.util.List;
 public class Mixta implements Topografia{
 	private List<Topografia> topografias;
 	
-	public Mixta(Topografia t1, Topografia t2, Topografia t3, Topografia t4) {
-		this.topografias = new ArrayList<Topografia>();
-		this.topografias.add(t1);
-		this.topografias.add(t2);
-		this.topografias.add(t3);
-		this.topografias.add(t4);
+	public Mixta(List<Topografia> lista) {
+		if (lista.size() != 4) {
+			throw new RuntimeException("Una topografía mixta debe contener exactamente 4 elementos");
+		}
+		this.topografias = new ArrayList<Topografia>(lista);
 	}
 
 	@Override
@@ -51,7 +50,6 @@ public class Mixta implements Topografia{
 
 	@Override
 	public boolean esIgualPantano() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
