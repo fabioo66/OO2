@@ -6,5 +6,11 @@ public class EnEvaluacion extends Estado{
 	public void aprobarEtapa(Proyecto proyecto) {
 		proyecto.setEstado(new Confirmado());
 	}
+	
+	public void modificarMargenDeGanancia(Proyecto proyecto, double valor) {
+		if (proyecto.getMargen() > 0.11 && proyecto.getMargen() < 0.15) {
+			proyecto.setMargen(valor);
+		}
+	}
 
 }

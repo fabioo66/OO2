@@ -10,5 +10,11 @@ public class EnConstruccion extends Estado{
 			throw new RuntimeException("Error");
 		}
 	}
+	
+	public void modificarMargenDeGanancia(Proyecto proyecto, double valor) {
+		if (proyecto.getMargen() > 0.8 && proyecto.getMargen() < 0.10) {
+			proyecto.setMargen(valor);
+		}
+	}
 
 }

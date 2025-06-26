@@ -6,9 +6,6 @@ public abstract class Estado {
 	}
 	
 	public void modificarMargenDeGanancia(Proyecto proyecto, double valor) {
-		if (proyecto.getMargen() > 0.11 && proyecto.getMargen() < 0.15) {
-			proyecto.setMargen(valor);
-		}
 	}
 	
 	public void cancelarProyecto(Proyecto proyecto) {
